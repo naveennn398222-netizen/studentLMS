@@ -1,22 +1,23 @@
 # student.py
-import sys
+def calculate_grade(average):
+    if average >= 90:
+        return "A+"
+    elif average >= 80:
+        return "A"
+    elif average >= 70:
+        return "B"
+    elif average >= 60:
+        return "C"
+    else:
+        return "F"
 
 def main():
-    if len(sys.argv) == 7:  # name dept sem m1 m2 m3
-        name, department, semester = sys.argv[1:4]
-        m1, m2, m3 = map(float, sys.argv[4:7])
-    else:
-        # fallback for local use
-        name = "Default Name"
-        department = "CSE"
-        semester = "5"
-        m1, m2, m3 = 70, 80, 90
-
-    average = (m1 + m2 + m3) / 3
+    # example, no input in CI/CD
+    name = "Test Student"
+    marks = [80, 85, 90]
+    average = sum(marks) / len(marks)
     grade = calculate_grade(average)
-    print(f"Average: {average}, Grade: {grade}")
+    print(f"{name} Average: {average}, Grade: {grade}")
 
 if __name__ == "__main__":
     main()
-
-
