@@ -1,23 +1,29 @@
 # student.py
-def calculate_grade(average):
-    if average >= 90:
-        return "A+"
-    elif average >= 80:
+
+def calculate_grade(marks):
+    if marks >= 90:
+        return "S"
+    elif marks >= 80:
         return "A"
-    elif average >= 70:
+    elif marks >= 65:
         return "B"
-    elif average >= 60:
+    elif marks >= 50:
         return "C"
+    elif marks >= 40:
+        return "D"
     else:
         return "F"
 
-def main():
-    # example, no input in CI/CD
-    name = "Test Student"
-    marks = [80, 85, 90]
-    average = sum(marks) / len(marks)
-    grade = calculate_grade(average)
-    print(f"{name} Average: {average}, Grade: {grade}")
-
+# Optional: test data for running manually
 if __name__ == "__main__":
-    main()
+    # Sample data
+    students = [
+        {"name": "naveen", "marks": 95},
+        {"name": "naveen", "marks": 85},
+        {"name": "naveen", "marks": 70},
+        
+    ]
+
+    for student in students:
+        grade = calculate_grade(student["marks"])
+        print(f"Student: {student['name']}, Marks: {student['marks']}, Grade: {grade}")
